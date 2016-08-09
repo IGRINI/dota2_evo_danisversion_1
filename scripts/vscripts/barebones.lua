@@ -510,5 +510,37 @@ function GameMode:OnEntityKilled( keys )
 	end
 	local killerTeam = killerEntity:GetTeam()
 
-	-- Put code here to handle when an entity gets killed
+	if killedUnit:IsCreature() then
+		local name = killedUnit:GetUnitName()
+		local modifier = tostring("modifier_" .. name .. "_mut")
+		if not killerEntity:HasModifier(modifier) then
+			killerEntity:ApplyDataDrivenModifier(killerEntity,killerEntity,modifier,{})
+		end
+		local current_stack = killerEntity:GetModifierStackCount(modifier,killerEntity)
+		killerEntity:SetModifierStackCount(modifier,killerEntity,current_stack + 1)
+
+		if modifier == "modifier_runner_simple_mut" and current_stack >= 100 then
+			killerEntity:SetModifierStackCount("modifier_runner_simple_mut", killerEntity, 100)
+		end
+
+		if modifier == "modifier_fly_simple_mut" and current_stack >= 320 then
+			killerEntity:SetModifierStackCount("modifier_fly_simple_mut", killerEntity, 320)
+		end
+
+		if modifier == "modifier_tank_simple_mut" and current_stack >= 220 then
+			killerEntity:SetModifierStackCount("modifier_tank_simple_mut", killerEntity, 220)
+		end
+
+		if modifier == "modifier_attacker_simple_mut" and current_stack >= 200 then
+			killerEntity:SetModifierStackCount("modifier_attacker_simple_mut", killerEntity, 200)
+		end
+
+		if modifier == "modifier_guard_simple_mut" and current_stack >= 25 then
+			killerEntity:SetModifierStackCount("modifier_guard_simple_mut", killerEntity, 25)
+		end
+
+		if modifier == "modifier_hitter_simple_mut" and current_stack >= 102 then
+			killerEntity:SetModifierStackCount("modifier_hitter_simple_mut", killerEntity, 102)
+		end
+	end
 end

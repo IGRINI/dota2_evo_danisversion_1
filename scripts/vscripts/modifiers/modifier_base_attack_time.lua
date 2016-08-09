@@ -13,12 +13,14 @@ end
 function modifier_base_attack_time:OnCreated( kv )
 	if IsServer() then
 		self.parent = self:GetParent()
+		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
 		self.baseattacktime = self.parent:GetBaseAttackTime()
 	end
 end
 function modifier_base_attack_time:OnRefresh( kv )
 	if IsServer() then
 		self.parent = self:GetParent()
+		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
 		self.baseattacktime = self.parent:GetBaseAttackTime()
 	end
 end
@@ -32,6 +34,6 @@ function modifier_base_attack_time:DeclareFunctions()
 	return funcs
 end
 function modifier_base_attack_time:GetModifierBaseAttackTimeConstant()
-	return self.baseattacktime - 0.01
+	return self.baseattacktime - (0.01 * self.stacks)
 end
 

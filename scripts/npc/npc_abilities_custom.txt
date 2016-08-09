@@ -1,0 +1,741 @@
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+"fly_vision_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"vision_bonus"				"2"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_vision"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"%vision_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_fly_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"%vision_bonus"
+				}
+			}
+		}
+	}
+
+"runner_movespeed_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_bonus"				"2"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_move_speed"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_runner_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"				
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
+				}
+			}
+		}
+	}
+
+"attacker_attack_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				damage_bonus				"1"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_attack"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%damage_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_attacker_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"				
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%damage_bonus"
+				}
+			}
+		}
+	}
+
+"tank_health_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"health_bonus"				"5"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_health"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS"	"%health_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_tank_simple_mut"
+			{
+				"Passive"	"0"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS"	"%health_bonus"
+				}
+			}
+		}
+	}
+
+"guard_armor_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_bonus"				"2"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_armor"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_guard_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_bonus"
+				}
+			}
+		}
+	}
+
+"hitter_attack_speed_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_bonus"				"6"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_attack_speed"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_hitter_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_bonus"
+				}
+			}
+		}
+	}
+
+"blocker_damage_block_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"block_bonus"				"2"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_simple_creature_block_death"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+		}
+	}
+
+"mage_mana_count_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_bonus"				"0.8"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_mana_bonus"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_mage_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_bonus"
+				}
+			}
+		}
+	}
+
+"mage_mana_regen_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"regen_bonus"				"0.5"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_mana_regen"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%regen_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_mage_r_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%regen_bonus"
+				}
+			}
+		}
+	}
+
+"tank_health_regen_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"regen_bonus"				"0.7"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_health_bonus"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%regen_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_tank_r_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%regen_bonus"
+				}
+			}
+		}
+	}
+
+"mage_mag_resist_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_bonus"				"0.2"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_mag_resist"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mana_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_mage_m_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mana_bonus"
+				}
+			}
+		}
+	}
+
+"stat_agi_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_bonus"				"0.12"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_stat_agi"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%mana_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_stat_a_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"	"%mana_bonus"
+				}
+			}
+		}
+	}
+
+"stat_str_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_bonus"				"0.14"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_stat_str"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%mana_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_stat_s_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%mana_bonus"
+				}
+			}
+		}
+	}
+
+"stat_int_bonus"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"	"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_bonus"				"0.15"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_simple_creature_mag_resist"
+			{
+				"Passive"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%mana_bonus"
+				}
+
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"mutations_vision/uni_evo.lua"
+						"Function"		"universal_system_1"
+					}
+				}
+			}
+
+			"modifier_mage_m_simple_mut"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Attributes"							"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%mana_bonus"
+				}
+			}
+		}
+	}
+
+"hero_evolution_first"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTexture"	"evolution"
+		"MaxLevel"			"1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"mutation_hero/lvl_1.lua"
+				"Function"			"first"
+			}
+		}
+
+		"OnCreated"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"mutation_hero/lvl_1.lua"
+				"Function"			"spawn_first"
+			}
+		}
+	}
+}

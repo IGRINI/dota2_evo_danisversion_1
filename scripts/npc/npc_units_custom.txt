@@ -1,0 +1,358 @@
+// Units File
+"DOTAUnits"
+{
+	"fly_simple"
+		{
+        // General
+	        //----------------------------------------------------------------
+	        "BaseClass"             "npc_dota_creature" // Базовый класс
+	        "Model"                 "models\props_wildlife\wildlife_birdsmall001.vmdl" // Модель
+	        "ModelScale"            "2" // Размер модели
+	        "Level"                 "1" // Уровень
+	        "HealthBarOffset"       "140" // Насколько высоко будет хп бар
+	        "HasInventory"          "0" // Имеет ли инвентарь
+	             //Дальше - смотрите по гайду
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"              "fly_vision_bonus"
+	        "Ability2"              ""
+	       
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"         "0"
+	        "MagicalResistance"     "0"
+	       
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	        "AttackDamageMin"       "10"
+	        "AttackDamageMax"       "10"
+	        "AttackRate"            "1"
+	        "AttackAnimationPoint"  "1"
+	        "AttackAcquisitionRange" "500"
+	        "AttackRange"           "90"
+	        "AttackRangeBuffer"		"900"
+	       
+	        // Bounty
+	        //----------------------------------------------------------------
+	        "BountyGoldMin"         "0"
+	        "BountyGoldMax"         "0"
+	        "BountyXP" 				"12"
+	       
+	        // Bounds
+	        //----------------------------------------------------------------
+	        "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
+	        "RingRadius"            "50"
+	       
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_FLY"
+	        "MovementSpeed"         "320"
+	        "MovementTurnRate"      "0.4"
+	       
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"          "55"
+	        "StatusHealthRegen"     "0"
+	        "StatusMana"            "0"
+	        "StatusManaRegen"       "0"
+	       
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"    "1340"
+	        "VisionNighttimeRange"  "1000"
+	       
+	        // Team
+	        //----------------------------------------------------------------
+	        "TeamName"              "DOTA_TEAM_NEUTRALS"
+	        "UseNeutralCreepBehavior"    "1"
+	        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		}
+
+	"runner_simple"
+		{
+        // General
+	        //----------------------------------------------------------------
+	        "BaseClass"             "npc_dota_creature" // Базовый класс
+	        "Model"                 "models\creeps\neutral_creeps\n_creep_satyr_c\n_creep_satyr_c.vmdl" // Модель
+	        "ModelScale"            "0.7" // Размер модели
+	        "Level"                 "1" // Уровень
+	        "HealthBarOffset"       "140" // Насколько высоко будет хп бар
+	        "HasInventory"          "0" // Имеет ли инвентарь
+	             //Дальше - смотрите по гайду
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"              "runner_movespeed_bonus"
+	        "Ability2"              ""
+	       
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"         "0"
+	        "MagicalResistance"     "0"
+	       
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	        "AttackDamageMin"       "12"
+	        "AttackDamageMax"       "16"
+	        "AttackRate"            "1"
+	        "AttackAnimationPoint"  "1"
+	        "AttackAcquisitionRange" "500"
+	        "AttackRange"           "90"
+	        "AttackRangeBuffer"		"560"
+	       
+	        // Bounty
+	        //----------------------------------------------------------------
+	        "BountyGoldMin"         "0"
+	        "BountyGoldMax"         "0"
+	        "BountyXP" 				"14"
+	       
+	        // Bounds
+	        //----------------------------------------------------------------
+	        "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
+	        "RingRadius"            "50"
+	       
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+	        "MovementSpeed"         "353"
+	        "MovementTurnRate"      "0.4"
+	       
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"          "30"
+	        "StatusHealthRegen"     "0"
+	        "StatusMana"            "0"
+	        "StatusManaRegen"       "0"
+	       
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"    "1200"
+	        "VisionNighttimeRange"  "1200"
+	       
+	        // Team
+	        //----------------------------------------------------------------
+	        "TeamName"              "DOTA_TEAM_NEUTRALS"
+	        "UseNeutralCreepBehavior"    "1"
+	        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		}
+
+	"attacker_simple"
+		{
+        // General
+	        //----------------------------------------------------------------
+	        "BaseClass"             "npc_dota_creature" // Базовый класс
+	        "Model"                 "models\props_wildlife\wildlife_hercules_beetle001.vmdl" // Модель
+	        "ModelScale"            "2" // Размер модели
+	        "Level"                 "1" // Уровень
+	        "HealthBarOffset"       "140" // Насколько высоко будет хп бар
+	        "HasInventory"          "0" // Имеет ли инвентарь
+	             //Дальше - смотрите по гайду
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"              "attacker_attack_bonus"
+	        "Ability2"              ""
+	       
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"         "0"
+	        "MagicalResistance"     "0"
+	       
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	        "AttackDamageMin"       "25"
+	        "AttackDamageMax"       "35"
+	        "AttackRate"            "1"
+	        "AttackAnimationPoint"  "1"
+	        "AttackAcquisitionRange" "500"
+	        "AttackRange"           "90"
+	        "AttackRangeBuffer"		"560"
+	       
+	        // Bounty
+	        //----------------------------------------------------------------
+	        "BountyGoldMin"         "0"
+	        "BountyGoldMax"         "0"
+	        "BountyXP" 				"30"
+	       
+	        // Bounds
+	        //----------------------------------------------------------------
+	        "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
+	        "RingRadius"            "50"
+	       
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+	        "MovementSpeed"         "280"
+	        "MovementTurnRate"      "0.4"
+	       
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"          "56"
+	        "StatusHealthRegen"     "0"
+	        "StatusMana"            "0"
+	        "StatusManaRegen"       "0"
+	       
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"    "1100"
+	        "VisionNighttimeRange"  "1100"
+	       
+	        // Team
+	        //----------------------------------------------------------------
+	        "TeamName"              "DOTA_TEAM_NEUTRALS"
+	        "UseNeutralCreepBehavior"    "1"
+	        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		}
+
+	"tank_simple"
+		{
+        // General
+	        //----------------------------------------------------------------
+	        "BaseClass"             "npc_dota_creature" // Базовый класс
+	        "Model"                 "models\creeps\neutral_creeps\n_creep_beast\n_creep_beast.vmdl" // Модель
+	        "ModelScale"            "0.5" // Размер модели
+	        "Level"                 "1" // Уровень
+	        "HealthBarOffset"       "140" // Насколько высоко будет хп бар
+	        "HasInventory"          "0" // Имеет ли инвентарь
+	             //Дальше - смотрите по гайду
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"              "tank_health_bonus"
+	        "Ability2"              ""
+	       
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"         "0"
+	        "MagicalResistance"     "0"
+	       
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	        "AttackDamageMin"       "12"
+	        "AttackDamageMax"       "16"
+	        "AttackRate"            "1"
+	        "AttackAnimationPoint"  "1"
+	        "AttackAcquisitionRange" "500"
+	        "AttackRange"           "90"
+	        "AttackRangeBuffer"		"560"
+	       
+	        // Bounty
+	        //----------------------------------------------------------------
+	        "BountyGoldMin"         "0"
+	        "BountyGoldMax"         "0"
+	        "BountyXP" 				"17"
+	       
+	        // Bounds
+	        //----------------------------------------------------------------
+	        "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
+	        "RingRadius"            "65"
+	       
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+	        "MovementSpeed"         "275"
+	        "MovementTurnRate"      "1.1"
+	       
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"          "121"
+	        "StatusHealthRegen"     "0"
+	        "StatusMana"            "0"
+	        "StatusManaRegen"       "0"
+	       
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"    "1100"
+	        "VisionNighttimeRange"  "1100"
+	       
+	        // Team
+	        //----------------------------------------------------------------
+	        "TeamName"              "DOTA_TEAM_NEUTRALS"
+	        "UseNeutralCreepBehavior"    "1"
+	        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		}
+
+	"guard_simple"
+		{
+        // General
+	        //----------------------------------------------------------------
+	        "BaseClass"             "npc_dota_creature" // Базовый класс
+	        "Model"                 "models\creeps\neutral_creeps\n_creep_troll_skeleton\n_creep_troll_skeleton_fx.vmdl" // Модель
+	        "ModelScale"            "1.4" // Размер модели
+	        "Level"                 "1" // Уровень
+	        "HealthBarOffset"       "140" // Насколько высоко будет хп бар
+	        "HasInventory"          "0" // Имеет ли инвентарь
+	             //Дальше - смотрите по гайду
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"              "guard_armor_bonus"
+	        "Ability2"              ""
+	       
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"         "4"
+	        "MagicalResistance"     "0"
+	       
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	        "AttackDamageMin"       "12"
+	        "AttackDamageMax"       "17"
+	        "AttackRate"            "1.2"
+	        "AttackAnimationPoint"  "1"
+	        "AttackAcquisitionRange" "500"
+	        "AttackRange"           "90"
+	        "AttackRangeBuffer"		"560"
+	       
+	        // Bounty
+	        //----------------------------------------------------------------
+	        "BountyGoldMin"         "0"
+	        "BountyGoldMax"         "0"
+	        "BountyXP" 				"17"
+	       
+	        // Bounds
+	        //----------------------------------------------------------------
+	        "BoundsHullName"        "DOTA_HULL_SIZE_HERO"
+	        "RingRadius"            "65"
+	       
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_GROUND"
+	        "MovementSpeed"         "290"
+	        "MovementTurnRate"      "0.7"
+	       
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"          "57"
+	        "StatusHealthRegen"     "0"
+	        "StatusMana"            "0"
+	        "StatusManaRegen"       "0"
+	       
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"    "1100"
+	        "VisionNighttimeRange"  "1100"
+	       
+	        // Team
+	        //----------------------------------------------------------------
+	        "TeamName"              "DOTA_TEAM_NEUTRALS"
+	        "UseNeutralCreepBehavior"    "1"
+	        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		}
+}

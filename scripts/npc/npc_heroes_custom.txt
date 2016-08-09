@@ -1,0 +1,60 @@
+// Dota Heroes File
+// NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
+// the specified key-value combinations.  Use override_hero <hero_to_override> for this.
+"DOTAHeroes"
+{
+"npc_dota_hero_slark"
+	{
+		"override_hero"				"npc_dota_hero_slark"	
+
+		"Ability1"	"hero_evolution_first"
+		"Ability2"	""
+		"Ability3"	""
+		"Ability4"	""
+	
+		"ArmorPhysical" "0" 		
+		"MagicalResistance" "0"	
+	
+		"AttackCapabilities" "DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin" "5" 
+		"AttackDamageMax" "7" 
+		"AttackRate" "2" 
+		"AttackAnimationPoint" "0.75" 
+		"AttackAcquisitionRange" "800" 
+		"AttackRange" "128" 
+	
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"0"										
+		"AttributeStrengthGain"		"0"										
+		"AttributeBaseIntelligence"	"0"										
+		"AttributeIntelligenceGain"	"0"										
+		"AttributeBaseAgility"		"5555"										
+		"AttributeAgilityGain"		"0"	
+	
+		"BountyXP" "0"
+		"BountyGoldMin" "0" 
+		"BountyGoldMax" "0" 
+		
+		"MovementCapabilities" "DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed" 	"300" 
+		"MovementTurnRate" 	"0.5" 
+	
+		"StatusHealth" 		"50"
+		"StatusHealthRegen" "0" 
+		"StatusMana" 		"80" 
+		"StatusManaRegen" 	"0" 
+	
+		"TeamName" "DOTA_TEAM_GOODGUYS" 
+		"CombatClassAttack" "DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend" "DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO"
+		"AttackType"    "hero"
+		"ArmorType"     "hero" 
+	
+		"VisionDaytimeRange" "900"
+		"VisionNighttimeRange" "900" 
+	
+		"GameSoundsFile"	"soundevents/game_sounds_heroes/game_sounds_slardar_REMOVE.vsndevts"
+		"HasInventory" "1" 
+	}
+}

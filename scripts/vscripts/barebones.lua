@@ -503,10 +503,12 @@ function GameMode:OnEntityKilled( keys )
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )
 	-- The Killing entity
 	local killerEntity = nil
+	local killedTeam = killedUnit:GetTeam()
 
 	if keys.entindex_attacker ~= nil then
 		killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	end
+	local killerTeam = killerEntity:GetTeam()
 
 	-- Put code here to handle when an entity gets killed
 end

@@ -31,6 +31,9 @@ end
 function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	
+	--###################################Modifiers###################################
+	LinkLuaModifier( "modifier_base_attack_time", 'modifiers/modifier_base_attack_time', LUA_MODIFIER_MOTION_NONE )
 end
 
 -- Evaluate the state of the game

@@ -119,7 +119,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				damage_bonus				"1"
+				"damage_bonus"				"1"
 			}
 		}
 

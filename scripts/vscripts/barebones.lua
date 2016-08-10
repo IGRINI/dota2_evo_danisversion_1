@@ -145,6 +145,10 @@ function GameMode:InitGameMode()
 	LinkLuaModifier( "modifier_stat_i_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_simple_bat_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_runner_simple_mutation", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_fullfilled_med", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_carnivore_first", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_omnivore_first", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_herbivor_first", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 
 	print('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end

@@ -144,6 +144,7 @@ function GameMode:InitGameMode()
 	LinkLuaModifier( "modifier_stat_s_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_stat_i_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_simple_bat_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_runner_simple_mutation", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 
 	print('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end
@@ -508,7 +509,7 @@ function GameMode:OnTeamKillCredit(keys)
 	local killerTeamNumber = keys.teamnumber
 end
 
---[[ An entity died
+-- An entity died
 function GameMode:OnEntityKilled( keys )
 	print( '[BAREBONES] OnEntityKilled Called' )
 	DeepPrintTable( keys )
@@ -524,10 +525,6 @@ function GameMode:OnEntityKilled( keys )
 	end
 	local killerTeam = killerEntity:GetTeam()
 
-	local id = killerEntity:GetPlayerOwnerID()
-
-	print("FLY SIMPLE " .. id.fly_simple)
-
 	if killedUnit:IsCreature() then
 		local name = killedUnit:GetUnitName()
 		print("NAME KILLED UNIT IS: " .. name)
@@ -538,75 +535,45 @@ function GameMode:OnEntityKilled( keys )
 		local current_stack = killerEntity:GetModifierStackCount(modifier,killerEntity)
 		killerEntity:SetModifierStackCount(modifier,killerEntity,current_stack + 1)
 
-		if name == fly_simple then
-			id.fly_simple = id.fly_simple + 1
-		elseif name == runner_simple then
-			id.runner_simple = id.runner_simple + 1
-		end
-
 		if modifier == "modifier_runner_simple_mut" then
-			id.runner_simple = id.runner_simple + 1
-			if id.runner_simple >= 100 then
-				id.runner_simple = 100
-			end
 		 	if current_stack >= 100 then
 				killerEntity:SetModifierStackCount("modifier_runner_simple_mut", killerEntity, 100)
 			end
 		end
 
 		if modifier == "modifier_fly_simple_mut" then
-			id.fly_simple = id.fly_simple + 1
-			if id.fly_simple  >= 320 then
-				id.fly_simple  = 320
-			end
 			if current_stack >= 320 then
 				killerEntity:SetModifierStackCount("modifier_fly_simple_mut", killerEntity, 320)
 			end
 		end
 
 		if modifier == "modifier_tank_simple_mut" then
-			id.tank_simple = id.tank_simple + 1
-			if id.tank_simple >= 220 then
-				id.tank_simple = 220
-			end
 			if current_stack >= 220 then
 				killerEntity:SetModifierStackCount("modifier_tank_simple_mut", killerEntity, 220)
 			end
 		end
 
 		if modifier == "modifier_attacker_simple_mut" then
-			id.attacker_simple = id.attacker_simple + 1
-			if id.attacker_simple >= 200 then
-				id.attacker_simple = 200
-			end
 			if current_stack >= 200 then
 				killerEntity:SetModifierStackCount("modifier_attacker_simple_mut", killerEntity, 200)
 			end
 		end
 
 		if modifier == "modifier_guard_simple_mut" then
-			id.guard_simple = id.guard_simple + 1
-			if id.guard_simple >= 25 then
-				id.guard_simple = 25
-			end
 			if current_stack >= 25 then
 				killerEntity:SetModifierStackCount("modifier_guard_simple_mut", killerEntity, 25)
 			end
 		end
 
 		if modifier == "modifier_hitter_simple_mut" then
-			id.hitter_simple = id.hitter_simple + 1
-			if id.hitter_simple >= 102 then
-				id.hitter_simple = 102
-			end
 			if current_stack >= 102 then
 				killerEntity:SetModifierStackCount("modifier_hitter_simple_mut", killerEntity, 102)
 			end
 		end
 	end
-end]]
+end
 
-function GameMode:OnEntityKilled( keys )
+--[[function GameMode:OnEntityKilled( keys )
 	local killedUnit = EntIndexToHScript( keys.entindex_killed )
 	local killerEntity
 	local killedTeam = killedUnit:GetTeam()
@@ -615,7 +582,7 @@ function GameMode:OnEntityKilled( keys )
 		killerEntity = EntIndexToHScript( keys.entindex_attacker )
 	end
 	local killerTeam = killerEntity:GetTeam()
-	
+
 	local player_owner = killerEntity:GetPlayerOwner(); -- что бы у каждого игрока были свои убитые юниты
 	if killedUnit and player_owner then -- если убитый юнит и игрок убийца не nil, тогда записывать в него количество убитых крипов.
 		player_owner.killed_creeps = player_owner.killed_creeps or {}
@@ -626,14 +593,21 @@ function GameMode:OnEntityKilled( keys )
 				["npc_dota_roshan"] = 5,
 				["npc_custom_blah"] = 1,
 			}
-		]]
+		
 		local name = killedUnit:GetUnitName()
 		local modifier = tostring("modifier_" .. name .. "_mut")
+		local modifiertation = tostring(modifier .. "ation")
 		if not killerEntity:HasModifier(modifier) then
 			killerEntity:AddNewModifier(killerEntity,nil,modifier,{})
 		end
 		local current_stack = killerEntity:GetModifierStackCount(modifier,killerEntity)
 		killerEntity:SetModifierStackCount(modifier,killerEntity,current_stack + 1)
 		DeepPrintTable(player_owner.killed_creeps)
+		if killerEntity:HasModifier(modifiertation) then
+			killerEntity:RemoveModifierByNameAndCaster(modifiertation,killerEntity)
+			killerEntity:AddNewModifier(killerEntity,nil,modifiertation,{})
+		else
+			killerEntity:AddNewModifier(killerEntity,nil,modifiertation,{})
+		end
 	end
-end
+end]]

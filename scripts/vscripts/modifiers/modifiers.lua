@@ -10,20 +10,6 @@ end
 function modifier_blocker_simple_mut:IsPurgable()
 	return false
 end
-function modifier_blocker_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.block_damage = 2 * stacks
-	end
-end
-function modifier_blocker_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.block_damage = 2 * stacks
-	end
-end
 function modifier_blocker_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -34,7 +20,7 @@ function modifier_blocker_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_blocker_simple_mut:GetModifierPhysical_ConstantBlockUnavoidablePreArmor(params)
-	return self.block_damage
+	return self:GetStackCount() * 2
 end
 
 
@@ -51,20 +37,6 @@ end
 function modifier_bat_simple_mut:IsPurgable()
 	return false
 end
-function modifier_bat_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.baseattacktime = self.parent:GetBaseAttackTime()
-	end
-end
-function modifier_bat_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.baseattacktime = self.parent:GetBaseAttackTime()
-	end
-end
 function modifier_bat_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -75,7 +47,7 @@ function modifier_bat_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_bat_simple_mut:GetModifierBaseAttackTimeConstant(params)
-	return self.baseattacktime - (0.012 * self.stacks)
+	return self.baseattacktime - (0.012 * self:GetStackCount())
 end
 
 
@@ -92,20 +64,6 @@ end
 function modifier_fly_simple_mut:IsPurgable()
 	return false
 end
-function modifier_fly_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.vision = self.stacks * 2
-	end
-end
-function modifier_fly_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.vision = self.stacks * 2
-	end
-end
 function modifier_fly_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -116,9 +74,8 @@ function modifier_fly_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_fly_simple_mut:GetBonusDayVision(params)
-	return self.vision
+	return self:GetStackCount() * 2
 end
-
 
 
 if modifier_runner_simple_mut == nil then
@@ -133,20 +90,6 @@ end
 function modifier_runner_simple_mut:IsPurgable()
 	return false
 end
-function modifier_runner_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount("modifier_runner_simple_mut", nil)
-		self.ms = self.stacks * 2
-	end
-end
-function modifier_runner_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount("modifier_runner_simple_mut", nil)
-		self.ms = self.stacks * 2
-	end
-end
 function modifier_runner_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -157,9 +100,8 @@ function modifier_runner_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_runner_simple_mut:GetModifierMoveSpeedBonus_Constant(params)
-	return 2
+	return self:GetStackCount() * 2
 end
-
 
 
 if modifier_attacker_simple_mut == nil then
@@ -174,20 +116,6 @@ end
 function modifier_attacker_simple_mut:IsPurgable()
 	return false
 end
-function modifier_attacker_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.ad = self.stacks * 1.2
-	end
-end
-function modifier_attacker_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.ad = self.stacks * 1.2
-	end
-end
 function modifier_attacker_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -198,7 +126,7 @@ function modifier_attacker_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_attacker_simple_mut:GetModifierPreAttack_BonusDamage(params)
-	return self.ad
+	return self:GetStackCount() * 1.2
 end
 
 
@@ -215,20 +143,6 @@ end
 function modifier_tank_simple_mut:IsPurgable()
 	return false
 end
-function modifier_tank_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.hp = self.stacks * 3.1
-	end
-end
-function modifier_tank_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.hp = self.stacks * 3.1
-	end
-end
 function modifier_tank_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -239,7 +153,7 @@ function modifier_tank_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_tank_simple_mut:GetModifierPreAttack_BonusDamage(params)
-	return self.hp
+	return self:GetStackCount() * 3.1
 end
 
 
@@ -256,20 +170,6 @@ end
 function modifier_guard_simple_mut:IsPurgable()
 	return false
 end
-function modifier_guard_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.armor = self.stacks * 1.2											--По-моему 2 армора - это очень много
-	end
-end
-function modifier_guard_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.armor = self.stacks * 1.2											--По-моему 2 армора - это очень много
-	end
-end
 function modifier_guard_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -280,7 +180,7 @@ function modifier_guard_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_guard_simple_mut:GetModifierPhysicalArmorBonus(params)
-	return self.armor
+	return self:GetStackCount() * 1.2
 end
 
 
@@ -297,20 +197,6 @@ end
 function modifier_hitter_simple_mut:IsPurgable()
 	return false
 end
-function modifier_hitter_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.as = self.stacks * 4.5										--Тоже много по-моему
-	end
-end
-function modifier_hitter_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.as = self.stacks * 4.5											--Тоже много по-моему
-	end
-end
 function modifier_hitter_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -321,7 +207,7 @@ function modifier_hitter_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_hitter_simple_mut:GetModifierAttackSpeedBonus_Constant(params)
-	return self.as
+	return self:GetStackCount() * 4.5
 end
 
 --#################################################^^^###############################################--
@@ -343,20 +229,6 @@ end
 function modifier_mage_simple_mut:IsPurgable()
 	return false
 end
-function modifier_mage_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.mb = self.stacks * 0.8										
-	end
-end
-function modifier_mage_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.mb = self.stacks * 0.8											
-	end
-end
 function modifier_mage_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -367,7 +239,7 @@ function modifier_mage_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_mage_simple_mut:GetModifierManaBonus(params)
-	return self.mb
+	return self:GetStackCount() * 0.8
 end
 
 
@@ -384,20 +256,6 @@ end
 function modifier_mage_r_simple_mut:IsPurgable()
 	return false
 end
-function modifier_mage_r_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.mr = self.stacks * 0.52								
-	end
-end
-function modifier_mage_r_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.mr = self.stacks * 0.52											
-	end
-end
 function modifier_mage_r_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -408,7 +266,7 @@ function modifier_mage_r_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_mage_r_simple_mut:GetModifierConstantManaRegen(params)
-	return self.mr
+	return self:GetStackCount() * 0.52
 end
 
 
@@ -425,20 +283,6 @@ end
 function modifier_tank_r_simple_mut:IsPurgable()
 	return false
 end
-function modifier_tank_r_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.hr = self.stacks * 0.74										
-	end
-end
-function modifier_tank_r_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.hr = self.stacks * 0.74											
-	end
-end
 function modifier_tank_r_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -449,7 +293,7 @@ function modifier_tank_r_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_tank_r_simple_mut:GetModifierConstantHealthRegen(params)
-	return self.hr
+	return self:GetStackCount() * 0.74
 end
 
 
@@ -466,20 +310,6 @@ end
 function modifier_mage_m_simple_mut:IsPurgable()
 	return false
 end
-function modifier_mage_m_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.mr = self.stacks * 0.74										
-	end
-end
-function modifier_mage_m_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.mr = self.stacks * 0.74											
-	end
-end
 function modifier_mage_m_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -490,7 +320,7 @@ function modifier_mage_m_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_mage_m_simple_mut:GetModifierMagicalResistanceBonus(params)
-	return self.mr
+	return self:GetStackCount() * 0.74
 end
 
 	--статы
@@ -507,20 +337,6 @@ end
 function modifier_stat_a_simple_mut:IsPurgable()
 	return false
 end
-function modifier_stat_a_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.ab = self.stacks * 0.12										
-	end
-end
-function modifier_stat_a_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.ab = self.stacks * 0.12											
-	end
-end
 function modifier_stat_a_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -531,7 +347,7 @@ function modifier_stat_a_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_stat_a_simple_mut:GetModifierBonusStats_Agility(params)
-	return self.ab
+	return self:GetStackCount() * 0.12
 end
 
 
@@ -548,20 +364,6 @@ end
 function modifier_stat_s_simple_mut:IsPurgable()
 	return false
 end
-function modifier_stat_s_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.sb = self.stacks * 0.14										
-	end
-end
-function modifier_stat_s_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.sb = self.stacks * 0.14											
-	end
-end
 function modifier_stat_s_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -572,7 +374,7 @@ function modifier_stat_s_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_stat_s_simple_mut:GetModifierMagicalResistanceBonus(params)
-	return self.sb
+	return self:GetStackCount() * 0.14
 end
 
 
@@ -589,20 +391,6 @@ end
 function modifier_stat_i_simple_mut:IsPurgable()
 	return false
 end
-function modifier_stat_i_simple_mut:OnCreated( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.ib = self.stacks * 0.15										
-	end
-end
-function modifier_stat_i_simple_mut:OnRefresh( kv )
-	if IsServer() then
-		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
-		self.ib = self.stacks * 0.15											
-	end
-end
 function modifier_stat_i_simple_mut:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -613,5 +401,5 @@ function modifier_stat_i_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_stat_i_simple_mut:GetModifierBonusStats_Intellect(params)
-	return self.ib
+	return self:GetStackCount() * 0.15
 end

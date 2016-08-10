@@ -184,7 +184,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS"	"%health_bonus"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%health_bonus"
 				}
 
 				"OnDeath"
@@ -204,7 +204,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS"	"%health_bonus"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%health_bonus"
 				}
 			}
 		}

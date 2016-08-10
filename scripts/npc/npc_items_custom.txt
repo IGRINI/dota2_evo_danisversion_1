@@ -1,8 +1,9 @@
 "DOTAAbilities"
 {
-"item_dummy"
+"item_meat_small"
 	{
-		"BaseClass"	"item_datadriven"
+		"BaseClass"	"item_lua"
 		"ItemPurchasable"	"0"
+		"ScriptFile"		""
 	}
 }

@@ -6,5 +6,30 @@
 		"ItemPurchasable"		"0"
 		"ScriptFile"			"food/item_meat_small"
 	}
+
+	"item_meat_lagre"
+	{
+		"BaseClass"             "item_lua"
+    	"ID"                    "2001"
+    	"ScriptFile"			"food/item_meat_lagre.lua"
+    	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    	"Model"                 "models/props_gameplay/red_box.vmdl"  //тут потом нужно кусок мяса присабачить 
+    	"Effect"                "particles/generic_gameplay/dropped_item.vpcf"  //частицы, можно сделать кровь от ульты блуда, хз
+    	"AbilityTextureName"    "meat_lagre"
+    	"AbilityCastPoint"      "0.0"
+    	"AbilityCooldown"       "0"
+    	"AbilityManaCost"       "0"
+    	"ItemCost"              "0"
+    	"ItemPurchasable"       "0"
+    	"ItemShareability"      "ITEM_NOT_SHAREABLE"
+    	"ItemShopTags"          "meat"
+    	"ItemQuality"           "common"
+    	"ItemAliases"           "meat"
+    	"ItemDeclarations"      ""
+    	"ItemCastOnPickup" 		"1"
+    	"ItemPurchasable"       "0"
+    	"ItemSellable"          "0"
+    	"ItemDisassembleRule"   "DOTA_ITEM_DISASSEMBLE_NEVER"
+	}
 	
 }

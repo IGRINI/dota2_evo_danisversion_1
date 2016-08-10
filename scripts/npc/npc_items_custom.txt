@@ -4,6 +4,6 @@
 	{
 		"BaseClass"	"item_lua"
 		"ItemPurchasable"	"0"
-		"ScriptFile"		""
+		"ScriptFile"		"food/item_meat_small"
 	}
 }

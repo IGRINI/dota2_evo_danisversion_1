@@ -2,15 +2,9 @@
 {
 	"item_meat_small"
 	{
-<<<<<<< HEAD
 		"BaseClass"				"item_lua"
 		"ItemPurchasable"		"0"
-		"ScriptFile"			""
-=======
-		"BaseClass"	"item_lua"
-		"ItemPurchasable"	"0"
-		"ScriptFile"		"food/item_meat_small"
->>>>>>> refs/remotes/ShadowMiner/master
+		"ScriptFile"			"food/item_meat_small"
 	}
 	
 }

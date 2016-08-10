@@ -293,6 +293,32 @@ end
 function modifier_herbivor_first:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
+
+if modifier_meat_med == nil then
+	modifier_meat_med = class({})
+end
+function modifier_meat_med:IsHidden()
+	return true
+end
+function modifier_meat_med:IsDebuff()
+	return false
+end
+function modifier_meat_med:IsPurgable()
+	return false
+end
+function modifier_meat_med:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+function modifier_meat_med:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE
+	}
+	return funcs
+end
+function modifier_meat_med:GetModifierHealthRegenPercentage(params)
+	return 4.5
+end
+
 --#################################################^^^###############################################--
 --#######################################Модификаторы I_GRIN_I#######################################--
 --#######################################Тут наши модификаторы#######################################--

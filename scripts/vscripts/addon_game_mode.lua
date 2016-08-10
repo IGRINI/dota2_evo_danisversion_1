@@ -33,8 +33,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	--###################################Modifiers###################################
-	LinkLuaModifier( "modifier_base_attack_time", 'modifiers/modifier_base_attack_time', LUA_MODIFIER_MOTION_NONE )
-	LinkLuaModifier( "modifier_blocker_simple_mut", 'mutations_vision/modifier_blocker_simple_mut', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_blocker_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_simple_bat_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 end
 
 -- Evaluate the state of the game

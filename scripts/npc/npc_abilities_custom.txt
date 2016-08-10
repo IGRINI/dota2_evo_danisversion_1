@@ -361,8 +361,8 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_bonus"				"0.8"
+				"var_type"					"FIELD_FLOAT"								//Если у тебя значение с десятыми, сотыми и т.д. то нужно менять FIELD_INTEGER на FIELD_FLOAT, везде, где есть десятые и т.д.
+				"mana_bonus"				"0.8"										//А тут мало почему-то
 			}
 		}
 
@@ -413,7 +413,7 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"					"FIELD_FLOAT"
 				"regen_bonus"				"0.5"
 			}
 		}
@@ -465,7 +465,7 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"					"FIELD_FLOAT"
 				"regen_bonus"				"0.7"
 			}
 		}
@@ -517,7 +517,7 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"					"FIELD_FLOAT"
 				"mana_bonus"				"0.2"
 			}
 		}
@@ -569,7 +569,7 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"					"FIELD_FLOAT"
 				"mana_bonus"				"0.12"
 			}
 		}
@@ -621,7 +621,7 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"					"FIELD_FLOAT"
 				"mana_bonus"				"0.14"
 			}
 		}
@@ -673,7 +673,7 @@
 		{
 			"01"
 			{
-				"var_type"					"FIELD_INTEGER"
+				"var_type"					"FIELD_FLOAT"
 				"mana_bonus"				"0.15"
 			}
 		}

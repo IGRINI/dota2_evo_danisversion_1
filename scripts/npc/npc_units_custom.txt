@@ -290,7 +290,7 @@
         // General
 	        //----------------------------------------------------------------
 	        "BaseClass"             "npc_dota_creature" // Базовый класс
-	        "Model"                 "models\creeps\neutral_creeps\n_creep_troll_skeleton\n_creep_troll_skeleton_fx.vmdl" // Модель
+	        "Model"                 "models\creeps\neutral_creeps\n_creep_troll_skeleton\n_creep_skeleton_melee.vmdl" // Модель
 	        "ModelScale"            "1.4" // Размер модели
 	        "Level"                 "1" // Уровень
 	        "HealthBarOffset"       "140" // Насколько высоко будет хп бар

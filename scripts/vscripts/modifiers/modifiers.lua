@@ -56,7 +56,7 @@ if modifier_fly_simple_mut == nil then
 	modifier_fly_simple_mut = class({})
 end
 function modifier_fly_simple_mut:IsHidden()
-	return false
+	return true
 end
 function modifier_fly_simple_mut:IsDebuff()
 	return false
@@ -82,7 +82,7 @@ if modifier_runner_simple_mut == nil then
 	modifier_runner_simple_mut = class({})
 end
 function modifier_runner_simple_mut:IsHidden()
-	return false
+	return true
 end
 function modifier_runner_simple_mut:IsDebuff()
 	return false
@@ -210,6 +210,89 @@ function modifier_hitter_simple_mut:GetModifierAttackSpeedBonus_Constant(params)
 	return self:GetStackCount() * 4.5
 end
 
+
+
+if modifier_fullfilled_med == nil then
+	modifier_hitter_simple_mut = class({})
+end
+function modifier_hitter_simple_mut:IsHidden()
+	return true
+end
+function modifier_hitter_simple_mut:IsDebuff()
+	return false
+end
+function modifier_hitter_simple_mut:IsPurgable()
+	return false
+end
+function modifier_hitter_simple_mut:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+
+
+if modifier_fullfilled_med == nil then
+	modifier_fullfilled_med = class({})
+end
+function modifier_fullfilled_med:IsHidden()
+	return true
+end
+function modifier_fullfilled_med:IsDebuff()
+	return false
+end
+function modifier_fullfilled_med:IsPurgable()
+	return false
+end
+function modifier_fullfilled_med:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if modifier_carnivore_first == nil then
+	modifier_carnivore_first = class({})
+end
+function modifier_carnivore_first:IsHidden()
+	return true
+end
+function modifier_carnivore_first:IsDebuff()
+	return false
+end
+function modifier_carnivore_first:IsPurgable()
+	return false
+end
+function modifier_carnivore_first:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if modifier_omnivore_first == nil then
+	modifier_omnivore_first = class({})
+end
+function modifier_omnivore_first:IsHidden()
+	return true
+end
+function modifier_omnivore_first:IsDebuff()
+	return false
+end
+function modifier_omnivore_first:IsPurgable()
+	return false
+end
+function modifier_omnivore_first:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if modifier_herbivor_first == nil then
+	modifier_herbivor_first = class({})
+end
+function modifier_herbivor_first:IsHidden()
+	return true
+end
+function modifier_herbivor_first:IsDebuff()
+	return false
+end
+function modifier_herbivor_first:IsPurgable()
+	return false
+end
+function modifier_herbivor_first:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
 --#################################################^^^###############################################--
 --#######################################Модификаторы I_GRIN_I#######################################--
 --#######################################Тут наши модификаторы#######################################--

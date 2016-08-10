@@ -1,9 +1,10 @@
 "DOTAAbilities"
 {
-"item_meat_small"
+	"item_meat_small"
 	{
-		"BaseClass"	"item_lua"
-		"ItemPurchasable"	"0"
-		"ScriptFile"		"food/item_meat_small"
+		"BaseClass"				"item_lua"
+		"ItemPurchasable"		"0"
+		"ScriptFile"			"food/item_meat_small"
 	}
+	
 }

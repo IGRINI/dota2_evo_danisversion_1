@@ -34,6 +34,20 @@ function CAddonTemplateGameMode:InitGameMode()
 	
 	--###################################Modifiers###################################
 	LinkLuaModifier( "modifier_blocker_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_bat_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_mage_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_hitter_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_guard_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_tank_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_fly_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_runner_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_attacker_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_mage_r_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_tank_r_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_mage_m_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_stat_a_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_stat_s_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_stat_i_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_simple_bat_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 end
 

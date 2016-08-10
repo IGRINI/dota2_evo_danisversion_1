@@ -1,4 +1,4 @@
-function universal_system_1(keys)
+--[[function universal_system_1(keys)
 	local A = keys.caster:GetUnitName()
 	local modifier = tostring("modifier_" .. A .. "_mut")
 	print(modifier)
@@ -32,4 +32,4 @@ function universal_system_1(keys)
 	if modifier == "modifier_hitter_simple_mut" and current_stack >= 102 then
 		keys.attacker:SetModifierStackCount("modifier_hitter_simple_mut", keys.attacker, 102)
 	end
-end
+end]]

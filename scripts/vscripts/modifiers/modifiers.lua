@@ -84,7 +84,7 @@ if modifier_fly_simple_mut == nil then
 	modifier_fly_simple_mut = class({})
 end
 function modifier_fly_simple_mut:IsHidden()
-	return true
+	return false
 end
 function modifier_fly_simple_mut:IsDebuff()
 	return false
@@ -125,7 +125,7 @@ if modifier_runner_simple_mut == nil then
 	modifier_runner_simple_mut = class({})
 end
 function modifier_runner_simple_mut:IsHidden()
-	return true
+	return false
 end
 function modifier_runner_simple_mut:IsDebuff()
 	return false
@@ -136,14 +136,14 @@ end
 function modifier_runner_simple_mut:OnCreated( kv )
 	if IsServer() then
 		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
+		self.stacks = self.parent:GetModifierStackCount("modifier_runner_simple_mut", nil)
 		self.ms = self.stacks * 2
 	end
 end
 function modifier_runner_simple_mut:OnRefresh( kv )
 	if IsServer() then
 		self.parent = self:GetParent()
-		self.stacks = self.parent:GetModifierStackCount(self, self.parent)
+		self.stacks = self.parent:GetModifierStackCount("modifier_runner_simple_mut", nil)
 		self.ms = self.stacks * 2
 	end
 end
@@ -157,7 +157,7 @@ function modifier_runner_simple_mut:DeclareFunctions()
 	return funcs
 end
 function modifier_runner_simple_mut:GetModifierMoveSpeedBonus_Constant(params)
-	return self.ms
+	return 2
 end
 
 
@@ -166,7 +166,7 @@ if modifier_attacker_simple_mut == nil then
 	modifier_attacker_simple_mut = class({})
 end
 function modifier_attacker_simple_mut:IsHidden()
-	return true
+	return false
 end
 function modifier_attacker_simple_mut:IsDebuff()
 	return false

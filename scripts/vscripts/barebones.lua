@@ -40,7 +40,7 @@ END_GAME_ON_KILLS = true                -- Should the game end after a certain n
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 50                          -- What level should we let heroes get to?
+MAX_LEVEL = 10                          -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
@@ -126,6 +126,24 @@ function GameMode:InitGameMode()
 
 	-- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
 	Convars:RegisterCommand( "command_example", Dynamic_Wrap(GameMode, 'ExampleConsoleCommand'), "A console command example", 0 )
+
+	--###################################Modifiers###################################
+	LinkLuaModifier( "modifier_blocker_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_bat_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_mage_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_hitter_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_guard_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_tank_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_fly_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_runner_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_attacker_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_mage_r_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_tank_r_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_mage_m_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_stat_a_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_stat_s_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_stat_i_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_simple_bat_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 
 	print('[BAREBONES] Done loading Barebones gamemode!\n\n')
 end
@@ -265,8 +283,8 @@ function GameMode:OnHeroInGame(hero)
 	hero:SetGold(500, false)
 
 	-- These lines will create an item and add it to the player, effectively ensuring they start with the item
-	local item = CreateItem("item_example_item", hero, hero)
-	hero:AddItem(item)
+
+
 end
 
 --[[
@@ -327,8 +345,6 @@ end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:OnNPCSpawned(keys)
-	print("[BAREBONES] NPC Spawned")
-	DeepPrintTable(keys)
 	local npc = EntIndexToHScript(keys.entindex)
 
 	if npc:IsRealHero() and npc.bFirstSpawned == nil then
@@ -436,8 +452,6 @@ end
 
 -- A player last hit a creep, a tower, or a hero
 function GameMode:OnLastHit(keys)
-	print ('[BAREBONES] OnLastHit')
-	DeepPrintTable(keys)
 
 	local isFirstBlood = keys.FirstBlood == 1
 	local isHeroKill = keys.HeroKill == 1
@@ -494,7 +508,7 @@ function GameMode:OnTeamKillCredit(keys)
 	local killerTeamNumber = keys.teamnumber
 end
 
--- An entity died
+--[[ An entity died
 function GameMode:OnEntityKilled( keys )
 	print( '[BAREBONES] OnEntityKilled Called' )
 	DeepPrintTable( keys )
@@ -510,37 +524,116 @@ function GameMode:OnEntityKilled( keys )
 	end
 	local killerTeam = killerEntity:GetTeam()
 
+	local id = killerEntity:GetPlayerOwnerID()
+
+	print("FLY SIMPLE " .. id.fly_simple)
+
 	if killedUnit:IsCreature() then
 		local name = killedUnit:GetUnitName()
+		print("NAME KILLED UNIT IS: " .. name)
 		local modifier = tostring("modifier_" .. name .. "_mut")
 		if not killerEntity:HasModifier(modifier) then
-			killerEntity:AddNewModifier(killerEntity,killerEntity,modifier,{})
+			killerEntity:AddNewModifier(killerEntity,nil,modifier,{})
 		end
 		local current_stack = killerEntity:GetModifierStackCount(modifier,killerEntity)
 		killerEntity:SetModifierStackCount(modifier,killerEntity,current_stack + 1)
 
-		if modifier == "modifier_runner_simple_mut" and current_stack >= 100 then
-			killerEntity:SetModifierStackCount("modifier_runner_simple_mut", killerEntity, 100)
+		if name == fly_simple then
+			id.fly_simple = id.fly_simple + 1
+		elseif name == runner_simple then
+			id.runner_simple = id.runner_simple + 1
 		end
 
-		if modifier == "modifier_fly_simple_mut" and current_stack >= 320 then
-			killerEntity:SetModifierStackCount("modifier_fly_simple_mut", killerEntity, 320)
+		if modifier == "modifier_runner_simple_mut" then
+			id.runner_simple = id.runner_simple + 1
+			if id.runner_simple >= 100 then
+				id.runner_simple = 100
+			end
+		 	if current_stack >= 100 then
+				killerEntity:SetModifierStackCount("modifier_runner_simple_mut", killerEntity, 100)
+			end
 		end
 
-		if modifier == "modifier_tank_simple_mut" and current_stack >= 220 then
-			killerEntity:SetModifierStackCount("modifier_tank_simple_mut", killerEntity, 220)
+		if modifier == "modifier_fly_simple_mut" then
+			id.fly_simple = id.fly_simple + 1
+			if id.fly_simple  >= 320 then
+				id.fly_simple  = 320
+			end
+			if current_stack >= 320 then
+				killerEntity:SetModifierStackCount("modifier_fly_simple_mut", killerEntity, 320)
+			end
 		end
 
-		if modifier == "modifier_attacker_simple_mut" and current_stack >= 200 then
-			killerEntity:SetModifierStackCount("modifier_attacker_simple_mut", killerEntity, 200)
+		if modifier == "modifier_tank_simple_mut" then
+			id.tank_simple = id.tank_simple + 1
+			if id.tank_simple >= 220 then
+				id.tank_simple = 220
+			end
+			if current_stack >= 220 then
+				killerEntity:SetModifierStackCount("modifier_tank_simple_mut", killerEntity, 220)
+			end
 		end
 
-		if modifier == "modifier_guard_simple_mut" and current_stack >= 25 then
-			killerEntity:SetModifierStackCount("modifier_guard_simple_mut", killerEntity, 25)
+		if modifier == "modifier_attacker_simple_mut" then
+			id.attacker_simple = id.attacker_simple + 1
+			if id.attacker_simple >= 200 then
+				id.attacker_simple = 200
+			end
+			if current_stack >= 200 then
+				killerEntity:SetModifierStackCount("modifier_attacker_simple_mut", killerEntity, 200)
+			end
 		end
 
-		if modifier == "modifier_hitter_simple_mut" and current_stack >= 102 then
-			killerEntity:SetModifierStackCount("modifier_hitter_simple_mut", killerEntity, 102)
+		if modifier == "modifier_guard_simple_mut" then
+			id.guard_simple = id.guard_simple + 1
+			if id.guard_simple >= 25 then
+				id.guard_simple = 25
+			end
+			if current_stack >= 25 then
+				killerEntity:SetModifierStackCount("modifier_guard_simple_mut", killerEntity, 25)
+			end
 		end
+
+		if modifier == "modifier_hitter_simple_mut" then
+			id.hitter_simple = id.hitter_simple + 1
+			if id.hitter_simple >= 102 then
+				id.hitter_simple = 102
+			end
+			if current_stack >= 102 then
+				killerEntity:SetModifierStackCount("modifier_hitter_simple_mut", killerEntity, 102)
+			end
+		end
+	end
+end]]
+
+function GameMode:OnEntityKilled( keys )
+	local killedUnit = EntIndexToHScript( keys.entindex_killed )
+	local killerEntity
+	local killedTeam = killedUnit:GetTeam()
+
+	if keys.entindex_attacker ~= nil then
+		killerEntity = EntIndexToHScript( keys.entindex_attacker )
+	end
+	local killerTeam = killerEntity:GetTeam()
+	
+	local player_owner = killerEntity:GetPlayerOwner(); -- что бы у каждого игрока были свои убитые юниты
+	if killedUnit and player_owner then -- если убитый юнит и игрок убийца не nil, тогда записывать в него количество убитых крипов.
+		player_owner.killed_creeps = player_owner.killed_creeps or {}
+		player_owner.killed_creeps[killedUnit:GetUnitName()] = (player_owner.killed_creeps[killedUnit:GetUnitName()] or 0)  + 1
+		--[[
+			итого будет как то так:
+			player.killed_creeps = {
+				["npc_dota_roshan"] = 5,
+				["npc_custom_blah"] = 1,
+			}
+		]]
+		local name = killedUnit:GetUnitName()
+		local modifier = tostring("modifier_" .. name .. "_mut")
+		if not killerEntity:HasModifier(modifier) then
+			killerEntity:AddNewModifier(killerEntity,nil,modifier,{})
+		end
+		local current_stack = killerEntity:GetModifierStackCount(modifier,killerEntity)
+		killerEntity:SetModifierStackCount(modifier,killerEntity,current_stack + 1)
+		DeepPrintTable(player_owner.killed_creeps)
 	end
 end

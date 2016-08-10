@@ -48,7 +48,6 @@ function CAddonTemplateGameMode:InitGameMode()
 	LinkLuaModifier( "modifier_stat_a_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_stat_s_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_stat_i_simple_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
-	LinkLuaModifier( "modifier_simple_bat_mut", 'modifiers/modifiers', LUA_MODIFIER_MOTION_NONE )
 end
 
 -- Evaluate the state of the game

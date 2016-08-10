@@ -514,7 +514,7 @@ function GameMode:OnEntityKilled( keys )
 		local name = killedUnit:GetUnitName()
 		local modifier = tostring("modifier_" .. name .. "_mut")
 		if not killerEntity:HasModifier(modifier) then
-			killerEntity:ApplyDataDrivenModifier(killerEntity,killerEntity,modifier,{})
+			killerEntity:AddNewModifier(killerEntity,killerEntity,modifier,{})
 		end
 		local current_stack = killerEntity:GetModifierStackCount(modifier,killerEntity)
 		killerEntity:SetModifierStackCount(modifier,killerEntity,current_stack + 1)

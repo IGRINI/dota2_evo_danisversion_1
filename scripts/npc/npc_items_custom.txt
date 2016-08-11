@@ -15,7 +15,7 @@
     	"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     	"Model"                 "models/props_gameplay/red_box.vmdl"  			//тут потом нужно кусок мяса присабачить 
     	"Effect"                "particles/generic_gameplay/dropped_item.vpcf"  //частицы, можно сделать кровь от ульты блуда, хз
-    	"AbilityTextureName"    "item_meat_lagre"
+    	"AbilityTextureName"    "meat_lagre"
     	"AbilityCastPoint"      "0.0"
     	"AbilityCooldown"       "0"
     	"AbilityManaCost"       "0"

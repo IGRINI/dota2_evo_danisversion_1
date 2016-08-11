@@ -22,7 +22,6 @@ function item_meat_lagre:GetCustomCastError()
 end
 function item_meat_lagre:OnSpellStart()
 	local caster = self:GetCaster()																		--Получаем кастера
-	--if not caster:HasModifier("modifier_fullfilled_med") then 										--Если на кастере не висит модификатора "полного живота, то"
 	caster:AddNewModifier(caster,self,"modifier_meat_med",{})											--Добавляем кастеру модификатор, который восстанавливает % хп
 	if not caster:HasModifier("modifier_carnivore_first") then 											--Если кастер не имеет модификатора Плотоядного, добавляем его и увеличиваем количество стаков на 1, чтобы сразу была единичка
 		caster:AddNewModifier(caster,self,"modifier_carnivore_first",{})								--Вот добавление модификатора
@@ -31,10 +30,6 @@ function item_meat_lagre:OnSpellStart()
 		local stacks = caster:GetModifierStackCount("modifier_carnivore_first",caster) 					--Получаем сколько стаков на модификаторе
 		caster:SetModifierStackCount("modifier_carnivore_first",caster,stacks + 1)						--Увеличиваем кол-во стаков на 1
 	end
-	--[[else 																							--Если кастер имеет модификатор полного живота на себе, то
-		self:RemoveSelf()																				--Удаляем предмет из инвентаря, чтобы не пошел каст
-		caster:AddItemByName("item_meat_lagre")															--Добавляем предмет обратно(типо он не заюзался)
-	end]]
 end
 function item_meat_lagre:OnChannelFinish( bInterrupted )												--Функция, которая запускается, когда каст окончен или прерван
 	local caster = self:GetCaster()																		--Получаем кастера

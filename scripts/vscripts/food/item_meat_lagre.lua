@@ -33,7 +33,6 @@ function item_meat_lagre:OnSpellStart()
 end
 function item_meat_lagre:OnChannelFinish( bInterrupted )												--Функция, которая запускается, когда каст окончен или прерван
 	local caster = self:GetCaster()																		--Получаем кастера
-	if caster:GetModifierStackCount(pszScriptName,hCaster)
 	if bInterrupted then 																				--Если каст прерван(салом, станом, сам игрок прервал, чем угодно)
 		caster:RemoveModifierByName("modifier_meat_med")												--Удаляем модификатор хила
 		self:RemoveSelf()																				--Удаляем предмет

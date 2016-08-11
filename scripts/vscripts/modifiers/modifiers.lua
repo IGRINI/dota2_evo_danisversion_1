@@ -278,19 +278,19 @@ function modifier_omnivore_first:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-if modifier_herbivor_first == nil then
-	modifier_herbivor_first = class({})
+if modifier_herbivore_first == nil then
+	modifier_herbivore_first = class({})
 end
-function modifier_herbivor_first:IsHidden()
+function modifier_herbivore_first:IsHidden()
 	return true
 end
-function modifier_herbivor_first:IsDebuff()
+function modifier_herbivore_first:IsDebuff()
 	return false
 end
-function modifier_herbivor_first:IsPurgable()
+function modifier_herbivore_first:IsPurgable()
 	return false
 end
-function modifier_herbivor_first:GetAttributes ()
+function modifier_herbivore_first:GetAttributes ()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 

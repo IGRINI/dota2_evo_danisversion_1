@@ -229,6 +229,55 @@ function modifier_hitter_simple_mut:GetAttributes ()
 end
 
 
+if modifier_carnivore == nil then
+	modifier_carnivore = class({})
+end
+function modifier_carnivore:IsHidden()
+	return true
+end
+function modifier_carnivore:IsDebuff()
+	return false
+end
+function modifier_carnivore:IsPurgable()
+	return false
+end
+function modifier_carnivore:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if modifier_omnivore == nil then
+	modifier_omnivore = class({})
+end
+function modifier_omnivore:IsHidden()
+	return true
+end
+function modifier_omnivore:IsDebuff()
+	return false
+end
+function modifier_omnivore:IsPurgable()
+	return false
+end
+function modifier_omnivore:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+if modifier_herbivore == nil then
+	modifier_herbivore = class({})
+end
+function modifier_herbivore:IsHidden()
+	return true
+end
+function modifier_herbivore:IsDebuff()
+	return false
+end
+function modifier_herbivore:IsPurgable()
+	return false
+end
+function modifier_herbivore:GetAttributes ()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+
 
 if modifier_fullfilled_med == nil then
 	modifier_fullfilled_med = class({})

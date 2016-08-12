@@ -2,7 +2,7 @@ if item_meat_lagre == nil then
 	item_meat_lagre = class({})
 end
 LinkLuaModifier( "modifier_meat_med","modifiers/modifiers", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_carnivore_first","modifiers/modifiers", LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_carnivore","modifiers/modifiers", LUA_MODIFIER_MOTION_NONE )
 function item_meat_lagre:GetChannelTime()																--Получаем время каста
 	return 5.2
 end
@@ -21,14 +21,14 @@ function item_meat_lagre:GetCustomCastError()
 	return ""
 end
 function item_meat_lagre:OnSpellStart()
-	local caster = self:GetCaster()																		--Получаем кастера
-	caster:AddNewModifier(caster,self,"modifier_meat_med",{})											--Добавляем кастеру модификатор, который восстанавливает % хп
-	if not caster:HasModifier("modifier_carnivore_first") then 											--Если кастер не имеет модификатора Плотоядного, добавляем его и увеличиваем количество стаков на 1, чтобы сразу была единичка
-		caster:AddNewModifier(caster,self,"modifier_carnivore_first",{})								--Вот добавление модификатора
-		caster:SetModifierStackCount("modifier_carnivore_first",caster,1) 								--Вот установка стака на
-	elseif caster:HasModifier("modifier_carnivore_first") then  										--Иначе если кастер уже имеет модификатор плотоядного, то
-		local stacks = caster:GetModifierStackCount("modifier_carnivore_first",caster) 					--Получаем сколько стаков на модификаторе
-		caster:SetModifierStackCount("modifier_carnivore_first",caster,stacks + 1)						--Увеличиваем кол-во стаков на 1
+	local caster = self:GetCaster()																	--Получаем кастера
+	caster:AddNewModifier(caster,self,"modifier_meat_med",{})										--Добавляем кастеру модификатор, который восстанавливает % хп
+	if not caster:HasModifier("modifier_carnivore") then 											--Если кастер не имеет модификатора Плотоядного, добавляем его и увеличиваем количество стаков на 1, чтобы сразу была единичка
+		caster:AddNewModifier(caster,self,"modifier_carnivore",{})									--Вот добавление модификатора
+		caster:SetModifierStackCount("modifier_carnivore",caster,1) 								--Вот установка стака на
+	elseif caster:HasModifier("modifier_carnivore") then  											--Иначе если кастер уже имеет модификатор плотоядного, то
+		local stacks = caster:GetModifierStackCount("modifier_carnivore",caster) 					--Получаем сколько стаков на модификаторе
+		caster:SetModifierStackCount("modifier_carnivore",caster,stacks + 1)						--Увеличиваем кол-во стаков на 1
 	end
 end
 function item_meat_lagre:OnChannelFinish( bInterrupted )												--Функция, которая запускается, когда каст окончен или прерван
